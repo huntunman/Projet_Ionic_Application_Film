@@ -7,7 +7,12 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>{{movie ? movie.title : ''}}</ion-title>
+    <ion-title *ngIf = "movie">{{movie ? movie.title : ''}}</ion-title>
+    <ion-buttons end>
+      <button ion-button incon-only style="font-size: 1.7em" (click)=toggleFavorite()>
+        <ion-icon [name]="isFavorite ? 'star':'star-outline'"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
