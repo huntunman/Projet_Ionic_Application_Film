@@ -20,7 +20,7 @@ export class MyMoviesPage {
   // Liste des films favoris
   favoriteMovies: any;
   movie: any;
-
+  // Constructeur de la page des favoris
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     private favoriteMovieProvider: FavoriteMovieProvider) 
@@ -28,10 +28,12 @@ export class MyMoviesPage {
 
   }
 
+  // Indique que la page à été ajoutée et chargé dans la mémoire (en cache)
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyMoviesPage');
   }
 
+  // Initialisation de la page avant de l'affiche
   ionViewWillEnter(){
     this.initFavoriteMovies();
   }
@@ -40,10 +42,12 @@ export class MyMoviesPage {
     this.favoriteMovieProvider.getFavoriteMovie()
      .then(favs => (this.favoriteMovies = favs));
   }
-
+  // On ajoute en fin de liste la page MovieList (Home) dans la file "d'action" ce qui nous fait aller sur cette page
   findMovie(){
     this.navCtrl.push(MovieListPage);
   }
+
+  // On ajoute en fin de liste la page MovieList (MovieDetails) dans la file "d'action" ce qui nous fait aller sur cette page
   goToDetail(movie){
     this.navCtrl.push(MovieDetailPage, {movie});
   }

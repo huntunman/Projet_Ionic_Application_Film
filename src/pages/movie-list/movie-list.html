@@ -14,9 +14,19 @@
 
 
 <ion-content padding>
+  <!-- On affiche un champ de recherche des films ou on peut entrer le nom d'un films pour le trouver -->
+  <form #f="ngForm" (ngSubmit)="onSubmitForm(f)">
+    <ion-item>
+      <input type="search" placeholder="Recherche de film" name="the_search" >
+      <!-- button type="button" ion-button end color="primary" (click)="goToDetail" -->
+    </ion-item>
+    
+  </form>
+  
+  <!-- On test s'il y a bien une liste de films à afficher -->
   <ion-grid *ngIf="movies">
     <ion-row>
-      <!-- On affiche les images les images (poster_path) de chaque films qui se trouve dans le tableau movies -->
+      <!-- On affiche les images les images (poster_path) de chaque films qui se trouve dans le liste movies et nous leur donnons une action au click pour afficher plus de détails sur les films -->
       <ion-col col-4 *ngFor="let movie of movies">
         <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" (click)="goToDetail(movie)"/>
       </ion-col>

@@ -24,6 +24,7 @@ export class MovieListPage {
     private movieApiProvider: MovieApiProvider
   ) { }
 
+  // Indique que la page à été ajoutée et chargé dans la mémoire (en cache)
   ionViewDidLoad() {
     this.movieApiProvider.getMovies().subscribe(data => {
       this.movies = data;
@@ -31,7 +32,7 @@ export class MovieListPage {
     })
     console.log('ionViewDidLoad MovieListPage');
   }
-
+  // On ajoute en fin de liste la page MovieList (MovieDetails) dans la file "d'action" ce qui nous fait aller sur cette page
   goToDetail(movie){
     this.navCtrl.push(MovieDetailPage, {movie});
   }

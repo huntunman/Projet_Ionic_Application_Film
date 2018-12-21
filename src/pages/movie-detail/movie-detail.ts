@@ -26,7 +26,7 @@ export class MovieDetailPage {
       this.favoriteMovieProvider.isFavoriteMovie(this.movie)
        .then(value => (this.isFavorite = value));
   }
-
+// Indique que la page à été ajoutée et chargé dans la mémoire (en cache)
   ionViewDidLoad() {
     console.log('ionViewDidLoad MovieDetailPage');
   }

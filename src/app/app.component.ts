@@ -3,7 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MyMoviesPage } from '../pages/my-movies/my-movies';
-import { ContactPage } from '../pages/contact/contact';
+import { AboutPage } from '../pages/about/about';
 import { MovieListPage } from '../pages/movie-list/movie-list';
 
 
@@ -15,7 +15,7 @@ import { MovieListPage } from '../pages/movie-list/movie-list';
 export class MyApp {
   tab1Root = MovieListPage;
   tab2Root = MyMoviesPage;
-  tab3Root = ContactPage;
+  tab3Root = AboutPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

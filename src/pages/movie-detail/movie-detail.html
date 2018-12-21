@@ -5,11 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
+<!-- On defini la coleur du bandeau -->
   <ion-navbar color="primary">
+    <!-- On verifie si sur ce qu'on a clicker est bien un film et on va chercher son titre pour l'afficher -->
     <ion-title *ngIf = "movie">{{movie ? movie.title : ''}}</ion-title>
+    <!-- On défini un bouton "Favoris" avec une certaine taille et on définie sa position à la "Fin" de la ligne donc totalement à droite alligner au padding par défaut -->
     <ion-buttons end>
+      <!-- Quand on clic sur l'icon on fait changer son état -->
       <button ion-button incon-only style="font-size: 1.7em" (click)=toggleFavorite()>
+        <!-- On verifie si le film est déjà en favoris, si ouil'étoile est pleine sinon l'étoile est vide  -->
         <ion-icon [name]="isFavorite ? 'star':'star-outline'"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,15 +21,20 @@
 
 </ion-header>
 
-
+<!-- le même test qu'au debut du header -->
 <ion-content padding *ngIf="movie">
+  <!-- On affiche une illustration du film -->
   <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path"/>
+  <!-- On affiche son titre -->
   <ion-card-content>{{movie.title}}</ion-card-content>
   <ion-card-header>
     <h2>Synopsis
+      <!-- On affiche sa note moyenne des utilisateurs -->
       <ion-badge color="primary">{{movie.vote_average}}</ion-badge>
     </h2>
   </ion-card-header>
+  <!-- On affiche le Synopsis -->
   <ion-card-content>{{movie.overview}}</ion-card-content>
+  <!-- On affiche sa date de sortie -->
   <ion-card-content>{{movie.release_date}}</ion-card-content>
 </ion-content>
