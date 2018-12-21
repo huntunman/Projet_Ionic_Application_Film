@@ -23,7 +23,7 @@ export class MovieDetailPage {
     private favoriteMovieProvider: FavoriteMovieProvider) {
 
       this.movie = this.navParams.get('movie');
-      this.favoriteMovieProvider.isFavoriteMovie(this.movie.id)
+      this.favoriteMovieProvider.isFavoriteMovie(this.movie)
        .then(value => (this.isFavorite = value));
   }
 
@@ -31,6 +31,7 @@ export class MovieDetailPage {
     console.log('ionViewDidLoad MovieDetailPage');
   }
 
+  // Fonction appeler au au clic sur l'étoile du favori qui teste si le film est en favoris ou non
   toggleFavorite(): void{
     this.isFavorite = !this.isFavorite;
     this.favoriteMovieProvider.toggleFavoriteMovie(this.movie);

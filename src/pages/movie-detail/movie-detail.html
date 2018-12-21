@@ -19,11 +19,13 @@
 
 
 <ion-content padding *ngIf="movie">
-  <img [src]="movie.poster_path"/>
+  <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.backdrop_path"/>
+  <ion-card-content>{{movie.title}}</ion-card-content>
   <ion-card-header>
     <h2>Synopsis
       <ion-badge color="primary">{{movie.vote_average}}</ion-badge>
     </h2>
   </ion-card-header>
   <ion-card-content>{{movie.overview}}</ion-card-content>
+  <ion-card-content>{{movie.release_date}}</ion-card-content>
 </ion-content>

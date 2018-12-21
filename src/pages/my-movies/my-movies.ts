@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MovieListPage } from '../movie-list/movie-list';
+import { MovieDetailPage } from '../movie-detail/movie-detail';
 import { FavoriteMovieProvider } from '../../providers/favorite-movie/favorite-movie';
-
 /**
  * Generated class for the MyMoviesPage page.
  *
@@ -15,8 +15,11 @@ import { FavoriteMovieProvider } from '../../providers/favorite-movie/favorite-m
   selector: 'page-my-movies',
   templateUrl: 'my-movies.html',
 })
+// Page Favoris
 export class MyMoviesPage {
-  favoriteMovies;
+  // Liste des films favoris
+  favoriteMovies: any;
+  movie: any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -40,5 +43,8 @@ export class MyMoviesPage {
 
   findMovie(){
     this.navCtrl.push(MovieListPage);
+  }
+  goToDetail(movie){
+    this.navCtrl.push(MovieDetailPage, {movie});
   }
 }

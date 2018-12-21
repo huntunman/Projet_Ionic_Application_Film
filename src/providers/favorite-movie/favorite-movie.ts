@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Storage } from "@ionic/storage";
+import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
+//import { IonicStorageModule } from '@ionic/storage';
+
 
 /*
   Generated class for the FavoriteMovieProvider provider.
@@ -12,7 +14,7 @@ const MOVIE_KEY = "movie_"
 @Injectable()
 export class FavoriteMovieProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private storage: Storage) {
     console.log('Hello FavoriteMovieProvider Provider');
   }
 
@@ -36,14 +38,14 @@ export class FavoriteMovieProvider {
   }
 
   getMovieKey(movie){
-    return MOVIE_KEY + movie.id.toString();
+    return MOVIE_KEY + movie.title;
   }
 
-  getFavoriteMovie(): Promise<void> {
+  getFavoriteMovie(): Promise<any> {
     return new Promise(resolve => {
-      let results;
+      let results: any = [];
       this.storage.keys()
-       .then(keys => keys.filter(key =>key.include(MOVIE_KEY))
+       .then(keys => keys.filter(key =>key.includes(MOVIE_KEY))
         .forEach(key => this.storage.get(key).then(data => results.push(JSON.parse(data)))
         )
       );

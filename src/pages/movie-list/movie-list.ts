@@ -16,17 +16,18 @@ import { MovieApiProvider } from '../../providers/movie-api/movie-api';
   templateUrl: 'movie-list.html',
 })
 export class MovieListPage {
-  movies = new Array<any>();
+  movies: any;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private movieApiProvider: MovieApiProvider
-  ) {  }
+  ) { }
 
   ionViewDidLoad() {
     this.movieApiProvider.getMovies().subscribe(data => {
       this.movies = data;
+      this.movies = this.movies.results;
     })
     console.log('ionViewDidLoad MovieListPage');
   }

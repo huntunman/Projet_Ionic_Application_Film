@@ -3,19 +3,16 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MyMoviesPage } from '../pages/my-movies/my-movies';
-//import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-//import { HomePage } from '../pages/home/home';
 import { MovieListPage } from '../pages/movie-list/movie-list';
 
 
-//import { TabsPage } from '../pages/tabs/tabs';
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  //rootPage:any = MyMoviesPage;
   tab1Root = MovieListPage;
   tab2Root = MyMoviesPage;
   tab3Root = ContactPage;
