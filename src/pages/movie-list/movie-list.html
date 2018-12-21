@@ -15,14 +15,7 @@
 
 <ion-content padding>
   <!-- On affiche un champ de recherche des films ou on peut entrer le nom d'un films pour le trouver -->
-  <form #f="ngForm" (ngSubmit)="onSubmitForm(f)">
-    <ion-item>
-      <input type="search" placeholder="Recherche de film" name="the_search" >
-      <!-- button type="button" ion-button end color="primary" (click)="goToDetail" -->
-    </ion-item>
-    
-  </form>
-  
+  <ion-searchbar (ionInput)="getMovie($event)"></ion-searchbar>
   <!-- On test s'il y a bien une liste de films à afficher -->
   <ion-grid *ngIf="movies">
     <ion-row>

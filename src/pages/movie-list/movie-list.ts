@@ -16,7 +16,8 @@ import { MovieApiProvider } from '../../providers/movie-api/movie-api';
   templateUrl: 'movie-list.html',
 })
 export class MovieListPage {
-  movies: any;
+  movies: any = [];
+  movie: any;
 
   constructor(
     public navCtrl: NavController, 
@@ -37,4 +38,22 @@ export class MovieListPage {
     this.navCtrl.push(MovieDetailPage, {movie});
   }
 
+  initializeMovie() {
+    this.movie = this.movies;
+  }
+
+  getMovie(ev: any) {
+    // Reset items back to all of the items
+    this.initializeMovie();
+
+    // set val to the value of the searchbar
+    const val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.movie = this.movies.filter((movie) => {
+        return (movie.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+  }
 }
