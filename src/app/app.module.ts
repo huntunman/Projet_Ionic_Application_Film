@@ -15,6 +15,9 @@ import { MovieApiProvider } from '../providers/movie-api/movie-api';
 import { HttpClientModule } from '@angular/common/http';
 import { FavoriteMovieProvider } from '../providers/favorite-movie/favorite-movie';
 
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -27,7 +30,8 @@ import { FavoriteMovieProvider } from '../providers/favorite-movie/favorite-movi
     MyMoviesPageModule,
     MovieListPageModule,
     MovieDetailPageModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxQRCodeModule
 
   ],
   bootstrap: [IonicApp],
@@ -41,7 +45,8 @@ import { FavoriteMovieProvider } from '../providers/favorite-movie/favorite-movi
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MovieApiProvider,
     MovieApiProvider,
-    FavoriteMovieProvider
+    FavoriteMovieProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}
