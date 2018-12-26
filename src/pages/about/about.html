@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       QR Code App
     </ion-title>
@@ -8,8 +8,16 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-input type="text" placeholder="MY QR Code data" [(ngModel)]="qrData"></ion-input>
+    <ion-searchbar (ionInput)="getMovie($event)" placeholder="Rechercher le Film" [(ngModel)]="qrData"></ion-searchbar>
   </ion-item>
+  <ion-grid *ngIf="movies">
+    <ion-row>
+      <!-- On affiche les images les images (poster_path) de chaque films qui se trouve dans le liste movies et nous leur donnons une action au click pour afficher plus de détails sur les films -->
+      <ion-col col-4 *ngFor="let movie of movies">
+        <img [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" (click)="createCode(movie)"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <button ion-button full icon-left (click)="createCode()"><ion-icon name="barcode"></ion-icon>Create Code</button>
   <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
 
