@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { MovieApiProvider } from '../../providers/movie-api/movie-api';
+//import { MovieDetailPage } from '../movie-detail/movie-detail';
+
 
 
 @Component({
@@ -9,7 +11,6 @@ import { MovieApiProvider } from '../../providers/movie-api/movie-api';
   templateUrl: 'about.html'
 })
 export class AboutPage {
-  qrData = null;
   createdCode = null;
   scannedCode = null;
 
@@ -32,13 +33,13 @@ export class AboutPage {
     console.log('ionViewDidLoad MovieListPage');
   }
 
-  createCode(){
-    this.createdCode = this.qrData;
+  createCode(movie){
+    this.createdCode = movie.toString();
   }
 
   scanCode(){
     this.barcodeScanner.scan().then(barcodeData => {
-      this.scannedCode = barcodeData.text;
+      this.scannedCode = barcodeData;
     }, (err) => {
         console.log('Error: ', err);
     });

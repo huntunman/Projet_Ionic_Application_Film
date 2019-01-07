@@ -15,6 +15,7 @@ import { FavoriteMovieProvider } from '../../providers/favorite-movie/favorite-m
   templateUrl: 'movie-detail.html',
 })
 export class MovieDetailPage {
+  createdCode = null;
   movie;
   isFavorite: boolean = false;
 
@@ -36,5 +37,8 @@ export class MovieDetailPage {
     this.isFavorite = !this.isFavorite;
     this.favoriteMovieProvider.toggleFavoriteMovie(this.movie);
   }
+  /*createCode(movie){
+    this.createdCode = movie.id.toString();
+  }*/
 
 }

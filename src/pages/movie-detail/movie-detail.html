@@ -37,4 +37,10 @@
   <ion-card-content>{{movie.overview}}</ion-card-content>
   <!-- On affiche sa date de sortie -->
   <ion-card-content>{{movie.release_date}}</ion-card-content>
+
+  <!--button ion-button full icon-left (click)="createCode(movie.id)"><ion-icon name="barcode"></ion-icon>Create Code</button>
+
+  <ion-card-content *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+  </ion-card-content-->
 </ion-content>
