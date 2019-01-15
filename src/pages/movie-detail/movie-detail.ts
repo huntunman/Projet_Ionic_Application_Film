@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FavoriteMovieProvider } from '../../providers/favorite-movie/favorite-movie';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 //import { MovieListePage } from '../movie-list'
 /**
  * Generated class for the MovieDetailPage page.
@@ -37,8 +39,8 @@ export class MovieDetailPage {
     this.isFavorite = !this.isFavorite;
     this.favoriteMovieProvider.toggleFavoriteMovie(this.movie);
   }
-  /*createCode(movie){
+  createCode(movie){
     this.createdCode = movie.id.toString();
-  }*/
+  }
 
 }

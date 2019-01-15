@@ -9,6 +9,7 @@ import { MovieListPage } from '../pages/movie-list/movie-list';
 
 
 
+
 @Component({
   templateUrl: 'app.html'
 })

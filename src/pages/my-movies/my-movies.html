@@ -13,9 +13,10 @@
 
 <!-- On verifie si la liste de favorie a été agrémenter donc si elle est vraie et sa taille sinon nous n'avons pas de favoris -->
 <!-- Malheureusement le teste ne fonctionne pas correctement surment du au template noFavorite -->
-<ion-content padding *ngIf="favoriteMovies && favoriteMovies.length; else noFavorite">
+<ion-content padding >
+  <!--*ngIf="favoriteMovies && favoriteMovies.length; else noFavorite"-->
   <!-- Affichage des films favoris enregistrer -->
-  <ion-grid>
+  <ion-grid >
     <ion-row>
       <!-- Pour chaque films on affiche leur affiche et on leur donne une action au click qui est d'afficher plus de détails en alllant sur une page créer pour cela -->
       <ion-col col-4 *ngFor="let movie of favoriteMovies">
