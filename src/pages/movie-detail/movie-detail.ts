@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FavoriteMovieProvider } from '../../providers/favorite-movie/favorite-movie';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+//import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
+
 
 //import { MovieListePage } from '../movie-list'
 /**
@@ -17,9 +18,11 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   templateUrl: 'movie-detail.html',
 })
 export class MovieDetailPage {
-  createdCode = null;
+  //createdCode = null;
   movie;
   isFavorite: boolean = false;
+  public myAngularxQrCode: string = null;
+  createdCode = null;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -28,6 +31,8 @@ export class MovieDetailPage {
       this.movie = this.navParams.get('movie');
       this.favoriteMovieProvider.isFavoriteMovie(this.movie)
        .then(value => (this.isFavorite = value));
+      //this.createdCode = this.movie.id.toString();
+      this.myAngularxQrCode = this.movie.id.toString();
   }
 // Indique que la page à été ajoutée et chargé dans la mémoire (en cache)
   ionViewDidLoad() {
@@ -40,7 +45,7 @@ export class MovieDetailPage {
     this.favoriteMovieProvider.toggleFavoriteMovie(this.movie);
   }
   createCode(movie){
-    this.createdCode = movie.id.toString();
+    this.createdCode = String(movie);
   }
 
 }

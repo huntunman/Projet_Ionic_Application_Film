@@ -1,15 +1,12 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      QR Code
+      QR Scanner
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-searchbar (ionInput)="getMovie($event)" placeholder="Rechercher le Film"></ion-searchbar>
-  </ion-item>
   <ion-grid *ngIf="movies">
     <ion-row>
       <!-- On affiche les images les images (poster_path) de chaque films qui se trouve dans le liste movies et nous leur donnons une action au click pour afficher plus de détails sur les films -->

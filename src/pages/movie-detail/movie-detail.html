@@ -41,6 +41,13 @@
   <button ion-button full icon-left (click)="createCode(movie.id)"><ion-icon name="barcode"></ion-icon>Create Code</button>
 
   <ion-card *ngIf="createdCode">
-    <ngx-qrcode [qrc-value]="createdCode" [size]="200"></ngx-qrcode>
+    <ion-card-content>
+      <ngx-qrcode [qrc-value]="createdCode" [size]="200"></ngx-qrcode>
+    </ion-card-content>
   </ion-card>
+  
+
+  <!--ion-card-content>
+    <qr-code [value]="'myAngularxQrCode'" [size]="200"></qr-code>
+  </ion-card-content-->
 </ion-content>
